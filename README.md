@@ -1,2 +1,2 @@
 # MonkeyGame
-pygame
+Pygame
