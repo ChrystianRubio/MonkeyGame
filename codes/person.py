@@ -1,31 +1,28 @@
 import pygame
 
 
+
 class Person:
     def __init__(self):
         
-        self.sprites = [ pygame.image.load('./Images/Monkey/monkey_right1.png') ,
-                         
-                         pygame.image.load('./Images/Monkey/monkey_right3.png') ,
+        self.sprites = [ pygame.image.load('../Images/Monkey/monkey_right1.png') ,
+                         pygame.image.load('../Images/Monkey/monkey_right3.png') ,
                         ]
-
-
-        #for image in range(0, len(self.sprites)):
-         #   self.sprites[image] = pygame.transform.scale(self.sprites[image], (100, 73))
         
         self.anySprite = 0
         self.body = self.sprites[self.anySprite]
 
         self.x = 50
-        self.y = 300
+        self.y = 298
         self.walking_right =  self.walking_left = False
 
         self.life = 3
+        self.speed = 1.5
     
     def walkingPerson(self):
         
         if self.walking_left:
-            self.x -= 2
+            self.x -= self.speed
             self.anySprite += 0.02
 
             if self.anySprite >= 2:
@@ -38,7 +35,7 @@ class Person:
 
 
         if self.walking_right:
-            self.x += 2
+            self.x += self.speed
             self.anySprite += 0.02
 
             if self.anySprite >= 2:

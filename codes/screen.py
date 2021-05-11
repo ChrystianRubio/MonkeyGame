@@ -5,10 +5,10 @@ class Screen:
     def __init__(self):
 
         pygame.init()
-        self.size = (1000, 400) #100, 400
+        self.size = (1000, 339) 
         self.colorScreen = (100, 0, 25)
         self.title = 'Monkey'
-        self.background = pygame.image.load('./Images/background/background_forest.jpeg')
+        self.background = pygame.image.load('../Images/background/background_forest.jpeg')
         #self.background = pygame.transform.scale(self.background, (1000, 600))
         self.window = pygame.display.set_mode(self.size)
         self.control_frames = pygame.time.Clock()
@@ -26,6 +26,11 @@ class Screen:
 
     def drawingPerson(self, screen, person):
         screen.blit(person.body, (person.x, person.y))
+
+
+    def drawingBanana(self, screen , banana):
+        screen.blit(banana.sprites[0], (banana.x, banana.y))
+
 
 
     def limitedPerson(self, person):

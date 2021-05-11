@@ -2,10 +2,36 @@ import pygame
 import sys
 import screen
 import person
+import banana
+import random
 
 
 screen = screen.Screen()
 myMonkey = person.Person()
+
+bananaOne = banana.Banana()
+bananaOne.sprites.append(pygame.image.load('../Images/Banana/Banana1.png'))
+bananaOne.x = random.randint(0, 900)
+bananaOne.y = random.randint(-400, 0)
+
+
+bananaTwo = banana.Banana()
+bananaTwo.sprites.append( pygame.image.load('../Images/Banana/Banana2.png'))
+bananaTwo.x = random.randint(0, 900)
+bananaTwo.y = random.randint(-400, 0)
+
+
+bananaThree = banana.Banana()
+bananaThree.sprites.append( pygame.image.load('../Images/Banana/Banana3.png') )
+bananaThree.x = random.randint(0, 900)
+bananaThree.y = random.randint(-400, 0)
+
+
+
+allBananas = [ bananaOne, bananaTwo, bananaThree ]
+
+for banana in allBananas:
+    banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
 
 
 while True:
@@ -35,7 +61,13 @@ while True:
     screen.limitedPerson(myMonkey)
     myMonkey.walkingPerson()
     
+    #Bananas
+
     
+    for banana in allBananas:
+        screen.drawingBanana(screen.window, banana)
+        banana.fall()
+        banana.resetFall()
     
     screen.updateScreen()
 
