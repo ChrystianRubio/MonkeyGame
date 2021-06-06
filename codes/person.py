@@ -46,7 +46,8 @@ class Person:
             self.body = pygame.transform.flip(self.sprites[int(self.anySprite)], True , False)
         
        
-
-
+    def collisionMonkeyBanana(self, rectOfMonkey, banana):
+        if pygame.Rect.colliderect(rectOfMonkey, banana):
+            pass
 
 
