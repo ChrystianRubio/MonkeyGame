@@ -1,12 +1,11 @@
 import pygame
 
 
-
 class Person:
     def __init__(self):
         
-        self.sprites = [ pygame.image.load('../Images/Monkey/monkey_right1.png') ,
-                         pygame.image.load('../Images/Monkey/monkey_right3.png') ,
+        self.sprites = [pygame.image.load('../Images/Monkey/monkey_right1.png'),
+                        pygame.image.load('../Images/Monkey/monkey_right3.png'),
                         ]
         
         self.anySprite = 0
@@ -14,12 +13,11 @@ class Person:
 
         self.x = 50
         self.y = 298
-        self.walking_right =  self.walking_left = False
-
+        self.walking_right = self.walking_left = False
         self.life = 3
         self.speed = 1.5
     
-    def walkingPerson(self):
+    def walking_person(self):
         
         if self.walking_left:
             self.x -= self.speed
@@ -28,11 +26,9 @@ class Person:
             if self.anySprite >= 2:
                 self.anySprite = 0
 
-             #Animations
+            # Animations
             
             self.body = self.sprites[int(self.anySprite)]
-            
-
 
         if self.walking_right:
             self.x += self.speed
@@ -41,13 +37,10 @@ class Person:
             if self.anySprite >= 2:
                 self.anySprite = 0
 
-            #Animations
+            # Animations
             
-            self.body = pygame.transform.flip(self.sprites[int(self.anySprite)], True , False)
-        
-       
-    def collisionMonkeyBanana(self, rectOfMonkey, banana):
-        if pygame.Rect.colliderect(rectOfMonkey, banana):
-            pass
+            self.body = pygame.transform.flip(self.sprites[int(self.anySprite)], True, False)
 
-
+    def collision_monkey_banana(self, rect_of_monkey, banana):
+        if pygame.Rect.colliderect(rect_of_monkey, banana):
+            print('Testing collision')

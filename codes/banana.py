@@ -1,4 +1,3 @@
-import pygame
 import random
 
 
@@ -10,16 +9,11 @@ class Banana:
         self.x = 0
         self.y = 0
 
-
     def fall(self):
         self.y += 1
 
-
-    def resetFall(self):
+    def reset_fall(self):
         if self.y >= 410:
             self.x = random.randint(0, 990)
             self.y = random.randint(-400, 0)
             self.y = -55
-
-
-

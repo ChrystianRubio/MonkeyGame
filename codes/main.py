@@ -35,7 +35,7 @@ for banana in allBananas:
 
 while True:
 
-    screen.drawingBackground(screen.window)
+    screen.drawing_background(screen.window)
 
     # Controls
 
@@ -53,16 +53,16 @@ while True:
                 myMonkey.walking_left = False
                 myMonkey.walking_right = True
 
-    screen.drawingPerson(screen.window, myMonkey)
-    screen.limitedPerson(myMonkey)
-    myMonkey.walkingPerson()
+    screen.drawing_person(screen.window, myMonkey)
+    screen.limited_person(myMonkey)
+    myMonkey.walking_person()
     
     # Bananas
 
     for banana in allBananas:
-        screen.drawingBanana(screen.window, banana)
+        screen.drawing_banana(screen.window, banana)
         banana.fall()
-        banana.resetFall()
+        banana.reset_fall()
 
     # Rect of Monkey
 
@@ -77,6 +77,6 @@ while True:
     rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
 
     for banana in rectOfBananaOne, rectOfBananaTwo, rectOfBananaThree:
-        myMonkey.collisionMonkeyBanana(rectOfMonkey, banana)
+        myMonkey.collision_monkey_banana(rectOfMonkey, banana)
 
-    screen.updateScreen()
+    screen.update_screen()
