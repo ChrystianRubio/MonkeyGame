@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 class Person:
@@ -14,7 +15,7 @@ class Person:
         self.x = 50
         self.y = 298
         self.walking_right = self.walking_left = False
-        self.life = 3
+        self.get_banana = 0
         self.speed = 1.5
     
     def walking_person(self):
@@ -41,6 +42,8 @@ class Person:
             
             self.body = pygame.transform.flip(self.sprites[int(self.anySprite)], True, False)
 
-    def collision_monkey_banana(self, rect_of_monkey, banana):
-        if pygame.Rect.colliderect(rect_of_monkey, banana):
-            print('Testing collision')
+    def collision_monkey_banana(self, rect_of_monkey, banana, rect_of_banana):
+        if pygame.Rect.colliderect(rect_of_monkey, rect_of_banana):
+            self.get_banana += 1
+            banana.y = random.randint(-400, 0)
+            print(self.get_banana)

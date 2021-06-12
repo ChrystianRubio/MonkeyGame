@@ -76,7 +76,12 @@ while True:
     
     rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
 
-    for banana in rectOfBananaOne, rectOfBananaTwo, rectOfBananaThree:
-        myMonkey.collision_monkey_banana(rectOfMonkey, banana)
+    myMonkey.collision_monkey_banana(rectOfMonkey, bananaOne, rectOfBananaOne)
+    myMonkey.collision_monkey_banana(rectOfMonkey, bananaTwo, rectOfBananaTwo)
+    myMonkey.collision_monkey_banana(rectOfMonkey, bananaThree, rectOfBananaThree)
+
+    # Show bananas of monkey in display
+
+    screen.show_bananas(myMonkey)
 
     screen.update_screen()
