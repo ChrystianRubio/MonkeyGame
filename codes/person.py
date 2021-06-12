@@ -17,6 +17,7 @@ class Person:
         self.walking_right = self.walking_left = False
         self.get_banana = 0
         self.speed = 1.5
+        self.collision_banana_song = pygame.mixer.Sound('../Songs/monkey_imitation.wav')
     
     def walking_person(self):
         
@@ -46,4 +47,6 @@ class Person:
         if pygame.Rect.colliderect(rect_of_monkey, rect_of_banana):
             self.get_banana += 1
             banana.y = random.randint(-400, 0)
-            print(self.get_banana)
+            random_for_song = random.randint(0, 400)
+            if random_for_song <= 100:
+                self.collision_banana_song.play()

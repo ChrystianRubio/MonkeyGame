@@ -32,8 +32,19 @@ allBananas = [bananaOne, bananaTwo, bananaThree]
 for banana in allBananas:
     banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
 
-
+screen.starting_music()
 while True:
+    # Rect of Monkey
+
+    rectOfMonkey = pygame.draw.rect(screen.window, (20, 50, 80), (myMonkey.x, myMonkey.y + 15, 43, 20))
+
+    # Rect of Bananas
+
+    rectOfBananaOne = pygame.draw.rect(screen.window, (20, 50, 80), (bananaOne.x, bananaOne.y, 20, 20))
+
+    rectOfBananaTwo = pygame.draw.rect(screen.window, (20, 50, 80), (bananaTwo.x, bananaTwo.y, 20, 20))
+
+    rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
 
     screen.drawing_background(screen.window)
 
@@ -66,15 +77,15 @@ while True:
 
     # Rect of Monkey
 
-    rectOfMonkey = pygame.draw.rect(screen.window, (20, 50, 80), (myMonkey.x, myMonkey.y + 15, 43, 20))
+    #rectOfMonkey = pygame.draw.rect(screen.window, (20, 50, 80), (myMonkey.x, myMonkey.y + 15, 43, 20))
 
     # Rect of Bananas
 
-    rectOfBananaOne = pygame.draw.rect(screen.window, (20, 50, 80), (bananaOne.x, bananaOne.y, 20, 20))
+    #rectOfBananaOne = pygame.draw.rect(screen.window, (20, 50, 80), (bananaOne.x, bananaOne.y, 20, 20))
     
-    rectOfBananaTwo = pygame.draw.rect(screen.window, (20, 50, 80), (bananaTwo.x, bananaTwo.y, 20, 20))
+    #rectOfBananaTwo = pygame.draw.rect(screen.window, (20, 50, 80), (bananaTwo.x, bananaTwo.y, 20, 20))
     
-    rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
+    #rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
 
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaOne, rectOfBananaOne)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaTwo, rectOfBananaTwo)
