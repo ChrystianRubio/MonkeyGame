@@ -12,7 +12,7 @@ class Screen:
         # self.background = pygame.transform.scale(self.background, (1000, 600))
         self.window = pygame.display.set_mode(self.size)
         self.control_frames = pygame.time.Clock()
-        pygame.mixer.music.load('../Songs/monkey_music.wav')
+        pygame.mixer.music.load('../Songs/forest_music.wav')
         pygame.display.set_caption(self.title)
 
     def drawing_background(self, screen_color):
