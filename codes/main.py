@@ -52,6 +52,11 @@ while True:
 
     rectOfBananaThree = pygame.draw.rect(screen.window, (20, 50, 80), (bananaThree.x, bananaThree.y, 20, 20))
 
+    # Rect of Cage
+
+    rectOfCage = pygame.draw.rect(screen.window, (20, 50, 80), (cage.x, cage.y + 15, 43, 20))
+
+    # Background
     screen.drawing_background(screen.window)
 
     # Controls
@@ -101,6 +106,7 @@ while True:
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaOne, rectOfBananaOne)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaTwo, rectOfBananaTwo)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaThree, rectOfBananaThree)
+    myMonkey.collision_monkey_cage(cage, rectOfMonkey, rectOfCage)
 
     # Show bananas of monkey in display
 
