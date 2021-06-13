@@ -31,6 +31,10 @@ class Screen:
         screen.blit(banana.sprites[0], (banana.x, banana.y))
 
     @staticmethod
+    def drawing_cage(screen, cage):
+        screen.blit(cage.body, (cage.x, cage.y))
+
+    @staticmethod
     def limited_person(person):
 
         if person.x <= -5:

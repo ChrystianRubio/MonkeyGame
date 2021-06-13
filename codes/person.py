@@ -48,5 +48,6 @@ class Person:
             self.get_banana += 1
             banana.y = random.randint(-400, 0)
             random_for_song = random.randint(0, 400)
+
             if random_for_song <= 100:
                 self.collision_banana_song.play()

@@ -4,6 +4,7 @@ import screen
 import person
 import banana
 import random
+import cage
 
 
 screen = screen.Screen()
@@ -28,6 +29,11 @@ bananaThree.y = random.randint(-400, 0)
 
 
 allBananas = [bananaOne, bananaTwo, bananaThree]
+
+cage = cage.Cage()
+cage.x = random.randint(0, 900)
+cage.y = random.randint(-400, 0)
+cage.body = pygame.transform.scale(cage.body, (50, 50))
 
 for banana in allBananas:
     banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
@@ -74,6 +80,11 @@ while True:
         screen.drawing_banana(screen.window, banana)
         banana.fall()
         banana.reset_fall()
+
+    # Cage
+    screen.drawing_cage(screen.window, cage)
+    cage.fall()
+    cage.reset_fall()
 
     # Rect of Monkey
 
