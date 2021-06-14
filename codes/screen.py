@@ -9,9 +9,11 @@ class Screen:
         self.colorScreen = (100, 0, 25)
         self.title = 'Monkey'
         self.background = pygame.image.load('../Images/background/background_forest.jpeg')
+        self.icon = pygame.image.load('../Images/Monkey/monkey_icon.png')
         # self.background = pygame.transform.scale(self.background, (1000, 600))
         self.window = pygame.display.set_mode(self.size)
         self.control_frames = pygame.time.Clock()
+        pygame.display.set_icon(self.icon)
         pygame.mixer.music.load('../Songs/forest_music.wav')
         pygame.display.set_caption(self.title)
 

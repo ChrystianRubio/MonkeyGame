@@ -79,10 +79,14 @@ while True:
                 myMonkey.speed = 3
 
         if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                myMonkey.walking_left = False
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                myMonkey.walking_right = False
             if event.key == pygame.K_SPACE:
                 myMonkey.speed = 1.5
-            else:
-                myMonkey.walking_left = myMonkey.walking_right = False
+            #else:
+            #    myMonkey.walking_left = myMonkey.walking_right = False
 
     screen.drawing_person(screen.window, myMonkey)
     screen.limited_person(myMonkey)
