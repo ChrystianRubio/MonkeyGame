@@ -59,4 +59,5 @@ class Person:
             self.get_banana = 0
             cage.y = random.randint(-600, 0)
             cage.x = random.randint(0, 900)
+            cage.speed = 1.6
             self.collision_cage_song.play()

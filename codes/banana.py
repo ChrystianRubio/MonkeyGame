@@ -16,4 +16,3 @@ class Banana:
         if self.y >= 410:
             self.x = random.randint(0, 990)
             self.y = random.randint(-400, 0)
-            self.y = -55
