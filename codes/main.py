@@ -30,10 +30,15 @@ bananaThree.y = random.randint(-400, 0)
 
 allBananas = [bananaOne, bananaTwo, bananaThree]
 
-cage = cage.Cage()
-cage.x = random.randint(0, 900)
-cage.y = random.randint(-400, 0)
-cage.body = pygame.transform.scale(cage.body, (50, 50))
+cage1 = cage.Cage()
+cage1.x = random.randint(0, 900)
+cage1.y = random.randint(-400, 0)
+cage1.body = pygame.transform.scale(cage1.body, (50, 50))
+
+cage2 = cage.Cage()
+cage2.x = random.randint(0, 900)
+cage2.y = random.randint(-400, 0)
+cage2.body = pygame.transform.scale(cage2.body, (50, 50))
 
 for banana in allBananas:
     banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
@@ -54,7 +59,9 @@ while True:
 
     # Rect of Cage
 
-    rectOfCage = pygame.draw.rect(screen.window, (20, 50, 80), (cage.x, cage.y + 15, 43, 20))
+    rectOfCage1 = pygame.draw.rect(screen.window, (20, 50, 80), (cage1.x, cage1.y + 15, 43, 20))
+    rectOfCage2 = pygame.draw.rect(screen.window, (20, 50, 80), (cage2.x, cage2.y + 15, 43, 20))
+
 
     # Background
     screen.drawing_background(screen.window)
@@ -98,14 +105,20 @@ while True:
         banana.reset_fall()
 
     # Cage
-    screen.drawing_cage(screen.window, cage)
-    cage.fall()
-    cage.reset_fall()
+    screen.drawing_cage(screen.window, cage1)
+    cage1.fall()
+    cage1.reset_fall()
+
+    screen.drawing_cage(screen.window, cage2)
+    cage2.fall()
+    cage2.reset_fall()
 
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaOne, rectOfBananaOne)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaTwo, rectOfBananaTwo)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaThree, rectOfBananaThree)
-    myMonkey.collision_monkey_cage(cage, rectOfMonkey, rectOfCage)
+
+    myMonkey.collision_monkey_cage(cage1, rectOfMonkey, rectOfCage1)
+    myMonkey.collision_monkey_cage(cage2, rectOfMonkey, rectOfCage2)
 
     # Show bananas of monkey in display
 

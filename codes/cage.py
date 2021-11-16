@@ -18,4 +18,3 @@ class Cage:
             self.x = random.randint(0, 900)
             self.y = random.randint(-400, 0)
             self.speed += 0.1
-
