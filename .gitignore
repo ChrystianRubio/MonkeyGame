@@ -2,3 +2,4 @@
 code/__pycache__/
 .idea/
 to-do
+venv/
