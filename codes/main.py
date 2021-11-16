@@ -62,7 +62,6 @@ while True:
     rectOfCage1 = pygame.draw.rect(screen.window, (20, 50, 80), (cage1.x, cage1.y + 15, 43, 20))
     rectOfCage2 = pygame.draw.rect(screen.window, (20, 50, 80), (cage2.x, cage2.y + 15, 43, 20))
 
-
     # Background
     screen.drawing_background(screen.window)
 
