@@ -37,6 +37,10 @@ class Screen:
         screen.blit(cage.body, (cage.x, cage.y))
 
     @staticmethod
+    def drawing_heart(screen, heart):
+        screen.blit(heart.body, (heart.x, heart.y))
+
+    @staticmethod
     def limited_person(person):
 
         if person.x <= -5:

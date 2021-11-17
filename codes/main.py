@@ -5,6 +5,7 @@ import person
 import banana
 import random
 import cage
+import heart
 
 
 screen = screen.Screen()
@@ -40,6 +41,11 @@ cage2.x = random.randint(0, 900)
 cage2.y = random.randint(-400, 0)
 cage2.body = pygame.transform.scale(cage2.body, (50, 50))
 
+heart1 = heart.Heart()
+heart1.x = random.randint(0, 900)
+heart1.y = random.randint(-400, 0)
+heart1.body = pygame.transform.scale(heart1.body, (24, 24))
+
 for banana in allBananas:
     banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
 
@@ -61,6 +67,10 @@ while True:
 
     rectOfCage1 = pygame.draw.rect(screen.window, (20, 50, 80), (cage1.x, cage1.y + 15, 43, 20))
     rectOfCage2 = pygame.draw.rect(screen.window, (20, 50, 80), (cage2.x, cage2.y + 15, 43, 20))
+
+    # Rect of heart
+
+    rectOfHeart1 = pygame.draw.rect(screen.window, (20, 50, 80), (heart1.x, heart1.y + 15, 43, 20))
 
     # Background
     screen.drawing_background(screen.window)
@@ -112,12 +122,25 @@ while True:
     cage2.fall()
     cage2.reset_fall()
 
+    # heart
+
+    screen.drawing_heart(screen.window, heart1)
+    heart1.fall()
+    heart1.reset_fall()
+
+    # collisions banana with monkey
+
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaOne, rectOfBananaOne)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaTwo, rectOfBananaTwo)
     myMonkey.collision_monkey_banana(rectOfMonkey, bananaThree, rectOfBananaThree)
 
+    # collisions cage with monkey
+
     myMonkey.collision_monkey_cage(cage1, rectOfMonkey, rectOfCage1)
     myMonkey.collision_monkey_cage(cage2, rectOfMonkey, rectOfCage2)
+
+    # collisions heart with monkey
+    myMonkey.collision_monkey_heart(heart1, rectOfMonkey, rectOfHeart1)
 
     # Show bananas of monkey in display
 

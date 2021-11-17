@@ -5,9 +5,10 @@ import random
 class Person:
     def __init__(self):
         
-        self.sprites = [pygame.image.load('../Images/Monkey/monkey_right1.png'),
+        self.sprites = [
+                        pygame.image.load('../Images/Monkey/monkey_right1.png'),
                         pygame.image.load('../Images/Monkey/monkey_right3.png'),
-                        ]
+                       ]
         
         self.anySprite = 0
         self.body = self.sprites[self.anySprite]
@@ -15,8 +16,11 @@ class Person:
         self.x = 50
         self.y = 298
         self.walking_right = self.walking_left = False
+
         self.get_banana = 0
+        self.life = 3
         self.speed = 1.5
+
         self.collision_banana_song = pygame.mixer.Sound('../Songs/monkey_imitation.wav')
         self.collision_cage_song = pygame.mixer.Sound('../Songs/monkey_cry.wav')
     
@@ -51,6 +55,7 @@ class Person:
             banana.x = random.randint(0, 900)
             random_for_song = random.randint(0, 400)
 
+            # sound monkey random
             if random_for_song <= 100:
                 self.collision_banana_song.play()
 
@@ -61,3 +66,11 @@ class Person:
             cage.x = random.randint(0, 900)
             cage.speed = 1.6
             self.collision_cage_song.play()
+
+    def collision_monkey_heart(self, heart, rect_of_monkey, rect_of_heart):
+        if pygame.Rect.colliderect(rect_of_monkey, rect_of_heart):
+            self.life += 1
+            heart.y = random.randint(-600, 0)
+            heart.x = random.randint(0, 900)
+            heart.speed = 1.6
+            #self.collision_cage_song.play()
