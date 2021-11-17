@@ -54,6 +54,11 @@ class Screen:
         msg_show = msg_font.render('Bananas: ' + str(monkey.get_banana), True, (100, 200, 100))
         self.window.blit(msg_show, (0, 10))
 
+    def show_life(self, monkey):
+        msg_font = pygame.font.Font('freesansbold.ttf', 25)
+        msg_show = msg_font.render('Life: ' + str(monkey.life), True, (255, 0, 0))
+        self.window.blit(msg_show, (922, 10))
+
     @staticmethod
     def starting_music():
         pygame.mixer.music.play(-1)

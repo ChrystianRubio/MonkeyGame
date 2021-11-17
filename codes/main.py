@@ -136,14 +136,14 @@ while True:
 
     # collisions cage with monkey
 
-    myMonkey.collision_monkey_cage(cage1, rectOfMonkey, rectOfCage1)
-    myMonkey.collision_monkey_cage(cage2, rectOfMonkey, rectOfCage2)
+    myMonkey.collision_monkey_cage(cage1, cage2, rectOfMonkey, rectOfCage1, rectOfCage2)
 
     # collisions heart with monkey
     myMonkey.collision_monkey_heart(heart1, rectOfMonkey, rectOfHeart1)
 
-    # Show bananas of monkey in display
+    # Show bananas and life of monkey in display
 
     screen.show_bananas(myMonkey)
+    screen.show_life(myMonkey)
 
     screen.update_screen()

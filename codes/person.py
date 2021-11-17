@@ -53,18 +53,20 @@ class Person:
             self.get_banana += 1
             banana.y = random.randint(-400, 0)
             banana.x = random.randint(0, 900)
-            random_for_song = random.randint(0, 400)
 
-            # sound monkey random
-            if random_for_song <= 100:
-                self.collision_banana_song.play()
-
-    def collision_monkey_cage(self, cage, rect_of_monkey, rect_of_cage):
+    def collision_monkey_cage(self, cage1, cage2, rect_of_monkey, rect_of_cage, rect_of_cage2):
         if pygame.Rect.colliderect(rect_of_monkey, rect_of_cage):
-            self.get_banana = 0
-            cage.y = random.randint(-600, 0)
-            cage.x = random.randint(0, 900)
-            cage.speed = 1.6
+            cage1.y = random.randint(-600, 0)
+            cage1.x = random.randint(0, 900)
+            cage1.speed = cage2.speed = 1.6
+            self.life -= 1
+            self.collision_cage_song.play()
+
+        if pygame.Rect.colliderect(rect_of_monkey, rect_of_cage2):
+            cage2.y = random.randint(-600, 0)
+            cage2.x = random.randint(0, 900)
+            cage1.speed = cage2.speed = 1.6
+            self.life -= 1
             self.collision_cage_song.play()
 
     def collision_monkey_heart(self, heart, rect_of_monkey, rect_of_heart):
@@ -73,4 +75,8 @@ class Person:
             heart.y = random.randint(-600, 0)
             heart.x = random.randint(0, 900)
             heart.speed = 1.6
-            #self.collision_cage_song.play()
+
+            random_for_song = random.randint(0, 400)
+            # sound monkey random
+            if random_for_song <= 100:
+                self.collision_banana_song.play()
