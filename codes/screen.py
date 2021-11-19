@@ -51,13 +51,13 @@ class Screen:
 
     def show_bananas(self, monkey):
         msg_font = pygame.font.Font('freesansbold.ttf', 25)
-        msg_show = msg_font.render('Bananas: ' + str(monkey.get_banana), True, (100, 200, 100))
-        self.window.blit(msg_show, (0, 10))
+        msg_show = msg_font.render('Bananas: ' + str(monkey.get_banana), True, (255, 230, 0))
+        self.window.blit(msg_show, (0, 50))
 
     def show_life(self, monkey):
         msg_font = pygame.font.Font('freesansbold.ttf', 25)
         msg_show = msg_font.render('Life: ' + str(monkey.life), True, (255, 0, 0))
-        self.window.blit(msg_show, (922, 10))
+        self.window.blit(msg_show, (0, 10))
 
     @staticmethod
     def starting_music():
