@@ -6,6 +6,7 @@ import banana
 import random
 import cage
 import heart
+import menu
 
 
 screen = screen.Screen()
@@ -50,6 +51,7 @@ for banana in allBananas:
     banana.sprites[0] = pygame.transform.scale(banana.sprites[0], (20, 20))
 
 screen.starting_music()
+menu.menu()
 while True:
     # Rect of Monkey
 
